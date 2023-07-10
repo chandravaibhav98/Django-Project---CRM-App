@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "my-db",
+  "steps": [
+    {
+      "file": "dcrm/mydb.py",
+      "description": "create Database",
+      "line": 18
+    }
+  ],
+  "ref": "main"
+}

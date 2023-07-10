@@ -16,8 +16,8 @@ cursorObject = database.cursor()
 
 
 def createDatabase():
-    createDatabaseQuery = 'CREATE DATABASE django;'
-    print('Database created! : django-project')
-
-
-cursorObject.execute(createDatabase())
+    createDatabaseQuery = "CREATE DATABASE django;"
+    print('Database created! : django')
+    cursorObject.execute(createDatabaseQuery)
+    
+createDatabase()
