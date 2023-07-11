@@ -113,6 +113,14 @@
         "documentation": {}
     },
     {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "authenticate",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -357,7 +365,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def home(request):\n    return render(request, 'home.html', {})\ndef login_user(request):\n    pass\ndef logout_user(request):\n    pass",
+        "peekOfCode": "def home(request):\n    # Check to see if loggin in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
