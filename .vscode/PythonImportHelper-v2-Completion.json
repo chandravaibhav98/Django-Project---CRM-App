@@ -49,6 +49,14 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -273,7 +281,7 @@
         "kind": 5,
         "importPath": "dcrm.dcrm.urls",
         "description": "dcrm.dcrm.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home' ),\n]",
         "detail": "dcrm.dcrm.urls",
         "documentation": {}
     },
@@ -293,6 +301,24 @@
         "description": "dcrm.website.apps",
         "peekOfCode": "class WebsiteConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'website'",
         "detail": "dcrm.website.apps",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "dcrm.website.urls",
+        "description": "dcrm.website.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "detail": "dcrm.website.urls",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def home(request):\n    return render(request, 'home.html', {})",
+        "detail": "dcrm.website.views",
         "documentation": {}
     },
     {
