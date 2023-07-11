@@ -192,7 +192,7 @@
         "kind": 5,
         "importPath": "dcrm.dcrm.settings",
         "description": "dcrm.dcrm.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'dcrm.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'django-project',\n        'USER': 'root',\n        'PASSWORD': '10081998',\n        'HOST': 'localhost',",
+        "peekOfCode": "WSGI_APPLICATION = 'dcrm.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'django',\n        'USER': 'root',\n        'PASSWORD': '10081998',\n        'HOST': 'localhost',",
         "detail": "dcrm.dcrm.settings",
         "documentation": {}
     },
@@ -201,7 +201,7 @@
         "kind": 5,
         "importPath": "dcrm.dcrm.settings",
         "description": "dcrm.dcrm.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'django-project',\n        'USER': 'root',\n        'PASSWORD': '10081998',\n        'HOST': 'localhost',\n        'PORT': '3306'\n    }\n}",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'django',\n        'USER': 'root',\n        'PASSWORD': '10081998',\n        'HOST': 'localhost',\n        'PORT': '3306',\n    }\n}",
         "detail": "dcrm.dcrm.settings",
         "documentation": {}
     },
@@ -305,11 +305,20 @@
         "documentation": {}
     },
     {
+        "label": "deleteDatabase",
+        "kind": 2,
+        "importPath": "dcrm.mydb",
+        "description": "dcrm.mydb",
+        "peekOfCode": "def deleteDatabase():\n    DeleteDatabaseQuery = \"DROP DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(DeleteDatabaseQuery)\ndef createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(createDatabaseQuery)\ndeleteDatabase()\ncreateDatabase()",
+        "detail": "dcrm.mydb",
+        "documentation": {}
+    },
+    {
         "label": "createDatabase",
         "kind": 2,
         "importPath": "dcrm.mydb",
         "description": "dcrm.mydb",
-        "peekOfCode": "def createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(createDatabaseQuery)\ncreateDatabase()",
+        "peekOfCode": "def createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(createDatabaseQuery)\ndeleteDatabase()\ncreateDatabase()",
         "detail": "dcrm.mydb",
         "documentation": {}
     },
@@ -318,7 +327,7 @@
         "kind": 5,
         "importPath": "dcrm.mydb",
         "description": "dcrm.mydb",
-        "peekOfCode": "database = mysql.connector.connect(\n    host='localhost',\n    user='root',\n    password='10081998',\n)\n# prepare a cursor object\ncursorObject = database.cursor()\n# Create a database\ndef createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"",
+        "peekOfCode": "database = mysql.connector.connect(\n    host='localhost',\n    user='root',\n    password='10081998',\n)\n# prepare a cursor object\ncursorObject = database.cursor()\n# Create a database\ndef deleteDatabase():\n    DeleteDatabaseQuery = \"DROP DATABASE django;\"",
         "detail": "dcrm.mydb",
         "documentation": {}
     },
@@ -327,7 +336,7 @@
         "kind": 5,
         "importPath": "dcrm.mydb",
         "description": "dcrm.mydb",
-        "peekOfCode": "cursorObject = database.cursor()\n# Create a database\ndef createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(createDatabaseQuery)\ncreateDatabase()",
+        "peekOfCode": "cursorObject = database.cursor()\n# Create a database\ndef deleteDatabase():\n    DeleteDatabaseQuery = \"DROP DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(DeleteDatabaseQuery)\ndef createDatabase():\n    createDatabaseQuery = \"CREATE DATABASE django;\"\n    print('Database created! : django')\n    cursorObject.execute(createDatabaseQuery)",
         "detail": "dcrm.mydb",
         "documentation": {}
     }
