@@ -41,6 +41,14 @@
         "documentation": {}
     },
     {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
         "label": "include",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -102,6 +110,30 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -316,7 +348,7 @@
         "kind": 5,
         "importPath": "dcrm.website.urls",
         "description": "dcrm.website.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n]",
         "detail": "dcrm.website.urls",
         "documentation": {}
     },
@@ -325,7 +357,25 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def home(request):\n    return render(request, 'home.html', {})",
+        "peekOfCode": "def home(request):\n    return render(request, 'home.html', {})\ndef login_user(request):\n    pass\ndef logout_user(request):\n    pass",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def login_user(request):\n    pass\ndef logout_user(request):\n    pass",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def logout_user(request):\n    pass",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
