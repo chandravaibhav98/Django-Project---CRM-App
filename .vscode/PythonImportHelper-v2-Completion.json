@@ -361,20 +361,20 @@
         "documentation": {}
     },
     {
-        "label": "home",
-        "kind": 2,
-        "importPath": "dcrm.website.views",
-        "description": "dcrm.website.views",
-        "peekOfCode": "def home(request):\n    # Check to see if loggin in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
-        "detail": "dcrm.website.views",
-        "documentation": {}
-    },
-    {
         "label": "login_user",
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def login_user(request):\n    pass\ndef logout_user(request):\n    pass",
+        "peekOfCode": "def login_user(request):\n# Check to see if loggin in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def home(request):\n    # Check to see if loggin in\n    login_user(request)\n    return render(request, 'home.html', {})\ndef logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
@@ -383,7 +383,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def logout_user(request):\n    pass",
+        "peekOfCode": "def logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')",
         "detail": "dcrm.website.views",
         "documentation": {}
     },

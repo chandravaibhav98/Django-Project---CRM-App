@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
 # Create your views here.
-def home(request):
-    # Check to see if loggin in
+
+def login_user(request):
+# Check to see if loggin in
     if request.method == 'POST':
         userName = request.POST['userName']
         passWord = request.POST['passWord']
@@ -17,10 +17,12 @@ def home(request):
         else:
             messages.success(request,'Error; Please try Login again')
             
+def home(request):
+    # Check to see if loggin in
+    login_user(request)
     return render(request, 'home.html', {})
 
-def login_user(request):
-    pass
-
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request,"You've been logged out")
+    return redirect('home')
