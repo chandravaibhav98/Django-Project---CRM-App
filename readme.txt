@@ -1,6 +1,7 @@
 https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
-28:49 django login users
+40:12 
+login users
 
 
 python mydb.py
