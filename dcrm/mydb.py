@@ -27,6 +27,5 @@ def createDatabase():
     cursorObject.execute(createDatabaseQuery)
 
 
-
 deleteDatabase()
 createDatabase()

@@ -531,7 +531,7 @@
         "kind": 5,
         "importPath": "dcrm.importdata",
         "description": "dcrm.importdata",
-        "peekOfCode": "conn = mysql.connector.connect(user='root', password='10081998',\n                               host='localhost', database='django')\ncursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)",
+        "peekOfCode": "conn = mysql.connector.connect(user='root', password='10081998',\n                               host='localhost', database='django')\ncursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r', encoding='utf8') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)",
         "detail": "dcrm.importdata",
         "documentation": {}
     },
@@ -540,7 +540,7 @@
         "kind": 5,
         "importPath": "dcrm.importdata",
         "description": "dcrm.importdata",
-        "peekOfCode": "cursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)",
+        "peekOfCode": "cursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r', encoding='utf8') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)",
         "detail": "dcrm.importdata",
         "documentation": {}
     },
@@ -549,7 +549,7 @@
         "kind": 5,
         "importPath": "dcrm.importdata",
         "description": "dcrm.importdata",
-        "peekOfCode": "mock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)\n        # Read csv row wise and insert into table\n        for row in csv_reader:",
+        "peekOfCode": "mock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r', encoding='utf8') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)\n        # Read csv row wise and insert into table\n        for row in csv_reader:",
         "detail": "dcrm.importdata",
         "documentation": {}
     },
