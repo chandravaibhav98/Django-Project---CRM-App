@@ -1,6 +1,8 @@
 https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
-1:15:00
+django - url,view,page
+
+1:43:00
 Database Model
 
 python mydb.py
@@ -14,5 +16,9 @@ python .\manage.py runserver
 
 admin/10*****8
 
+
+SQL:
+
+select * from website_record;
 
 https://github.com/flatplanet/Django-CRM

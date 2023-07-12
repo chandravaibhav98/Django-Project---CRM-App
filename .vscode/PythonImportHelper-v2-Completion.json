@@ -440,7 +440,7 @@
         "kind": 5,
         "importPath": "dcrm.website.urls",
         "description": "dcrm.website.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    #path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    # path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n    path('record/<int:pk>', views.customer_record, name='record'),\n]",
         "detail": "dcrm.website.urls",
         "documentation": {}
     },
@@ -459,6 +459,15 @@
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
         "peekOfCode": "def register_user(request):\n    if request.method == 'POST':\n        form = SignUpForm(request.POST)\n        if form.is_valid():\n            form.save()\n            # Authenticate and login\n            username = form.cleaned_data['username']\n            password = form.cleaned_data['password1']\n            user = authenticate(username=username, password=password)\n            login(request, user)",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "customer_record",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def customer_record(request, pk):\n    if request.user.is_authenticated():\n        # Look Up Records\n        customer_record = Record.objects.get(id=pk)\n        return render(request, 'register.html', {'customer_record': customer_record})\n    else:\n        messages.success(\n                request, \"You must be logged in to see this page\")\n            return redirect('home')\ndef home(request):",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
