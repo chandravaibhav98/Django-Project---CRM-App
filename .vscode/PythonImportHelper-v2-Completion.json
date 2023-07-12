@@ -467,7 +467,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def customer_record(request, pk):\n    if request.user.is_authenticated:\n        # Look Up Records\n        customer_record = Record.objects.get(id=pk)\n        return render(request, 'register.html', {'customer_record': customer_record})\n    else:\n        messages.success(\n            request, \"You must be logged in to see this page\")\n        return redirect('home')\ndef home(request):",
+        "peekOfCode": "def customer_record(request, pk):\n    if request.user.is_authenticated:\n        # Look Up Records\n        customer_record = Record.objects.get(id=pk)\n        return render(request, 'record.html', {'customer_record': customer_record})\n    else:\n        messages.success(\n            request, \"You must be logged in to see this page\")\n        return redirect('home')\ndef home(request):",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
