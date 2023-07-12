@@ -13,18 +13,20 @@ database = mysql.connector.connect(
 cursorObject = database.cursor()
 
 # Create a database
+
+
 def deleteDatabase():
     DeleteDatabaseQuery = "DROP DATABASE django;"
     print('Database created! : django')
     cursorObject.execute(DeleteDatabaseQuery)
-    
+
 
 def createDatabase():
     createDatabaseQuery = "CREATE DATABASE django;"
     print('Database created! : django')
     cursorObject.execute(createDatabaseQuery)
-    
+
+
+
 deleteDatabase()
 createDatabase()
-
-

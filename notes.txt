@@ -2,8 +2,7 @@ https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
 django - url,view,page
 
-1:46:00
-Individual Record - record.html
+2:05:--
 
 python mydb.py
 
@@ -25,3 +24,28 @@ SQL:
 select * from website_record;
 
 https://github.com/flatplanet/Django-CRM
+
+
+LOAD DATA INFILE "C:\Code\Django Project- Code a CRM App Tutorial\mockdata\MOCK_DATA_1.csv"
+INTO TABLE CSVImport
+COLUMNS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE "C:\Code\Django Project- Code a CRM App Tutorial\mockdata\MOCK_DATA_2.csv"
+INTO TABLE CSVImport
+COLUMNS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA INFILE "C:\Code\Django Project- Code a CRM App Tutorial\mockdata\MOCK_DATA_3.csv"
+INTO TABLE CSVImport
+COLUMNS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;

@@ -113,14 +113,6 @@
         "documentation": {}
     },
     {
-        "label": "model",
-        "importPath": "pyexpat",
-        "description": "pyexpat",
-        "isExtraImport": true,
-        "detail": "pyexpat",
-        "documentation": {}
-    },
-    {
         "label": "UserCreationForm",
         "importPath": "django.contrib.auth.forms",
         "description": "django.contrib.auth.forms",
@@ -202,12 +194,21 @@
         "documentation": {}
     },
     {
-        "label": "sys",
+        "label": "csv",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "mysql",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mysql",
+        "description": "mysql",
+        "detail": "mysql",
         "documentation": {}
     },
     {
@@ -217,6 +218,15 @@
         "importPath": "mysql.connector",
         "description": "mysql.connector",
         "detail": "mysql.connector",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -422,7 +432,16 @@
         "kind": 6,
         "importPath": "dcrm.website.forms",
         "description": "dcrm.website.forms",
-        "peekOfCode": "class SignUpForm(UserCreationForm):\n    email = forms.EmailField(\n        label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))\n    first_name = forms.CharField(label='', max_length=20, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'first name'}))\n    last_name = forms.CharField(label='', max_length=20, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'last name'}))\n    class Meta:\n        model = User\n        fields = ('username', 'first_name', 'last_name',",
+        "peekOfCode": "class SignUpForm(UserCreationForm):\n    email = forms.EmailField(label=\"\", widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'Email Address'}))\n    first_name = forms.CharField(label=\"\", max_length=100, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'First Name'}))\n    last_name = forms.CharField(label=\"\", max_length=100, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'Last Name'}))\n    class Meta:\n        model = User\n        fields = ('username', 'first_name', 'last_name',",
+        "detail": "dcrm.website.forms",
+        "documentation": {}
+    },
+    {
+        "label": "AddRecordForm",
+        "kind": 6,
+        "importPath": "dcrm.website.forms",
+        "description": "dcrm.website.forms",
+        "peekOfCode": "class AddRecordForm(forms.ModelForm):\n    first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(\n        attrs={\"placeholder\": \"First Name\", \"class\": \"form-control\"}), label=\"\")\n    last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(\n        attrs={\"placeholder\": \"Last Name\", \"class\": \"form-control\"}), label=\"\")\n    email = forms.CharField(required=True, widget=forms.widgets.TextInput(\n        attrs={\"placeholder\": \"Email\", \"class\": \"form-control\"}), label=\"\")\n    phone = forms.CharField(required=True, widget=forms.widgets.TextInput(\n        attrs={\"placeholder\": \"Phone\", \"class\": \"form-control\"}), label=\"\")\n    address = forms.CharField(required=True, widget=forms.widgets.TextInput(",
         "detail": "dcrm.website.forms",
         "documentation": {}
     },
@@ -440,7 +459,7 @@
         "kind": 5,
         "importPath": "dcrm.website.urls",
         "description": "dcrm.website.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    # path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n    path('record/<int:pk>', views.customer_record, name='record'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    # path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n    path('record/<int:pk>', views.customer_record, name='record'),\n    path('delete_record/<int:pk>', views.delete_record, name='delete_record'),\n    path('add_record/', views.add_record, name='add_record'),\n    path('update_record/<int:pk>', views.update_record, name='update_record'),\n]",
         "detail": "dcrm.website.urls",
         "documentation": {}
     },
@@ -467,7 +486,34 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def customer_record(request, pk):\n    if request.user.is_authenticated:\n        # Look Up Records\n        customer_record = Record.objects.get(id=pk)\n        return render(request, 'record.html', {'customer_record': customer_record})\n    else:\n        messages.success(\n            request, \"You must be logged in to see this page\")\n        return redirect('home')\ndef home(request):",
+        "peekOfCode": "def customer_record(request, pk):\n    if request.user.is_authenticated:\n        # Look Up Records\n        customer_record = Record.objects.get(id=pk)\n        return render(request, 'record.html', {'customer_record': customer_record})\n    else:\n        messages.success(\n            request, \"You must be logged in to see this page\")\n        return redirect('home')\ndef delete_record(request, pk):",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_record",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def delete_record(request, pk):\n    if request.user.is_authenticated:\n        delete_it = Record.objects.get(id=pk)\n        delete_it.delete()\n        messages.success(request, \"Record Deleted Successfully...\")\n        return redirect('home')\n    else:\n        messages.success(request, \"You Must Be Logged In To Do That...\")\n        return redirect('home')\ndef add_record(request):",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "add_record",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def add_record(request):\n    form = AddRecordForm(request.POST or None)\n    if request.user.is_authenticated:\n        if request.method == \"POST\":\n            if form.is_valid():\n                add_record = form.save()\n                messages.success(request, \"Record Added...\")\n                return redirect('home')\n        return render(request, 'add_record.html', {'form': form})\n    else:",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "update_record",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def update_record(request, pk):\n    if request.user.is_authenticated:\n        current_record = Record.objects.get(id=pk)\n        form = AddRecordForm(request.POST or None, instance=current_record)\n        if form.is_valid():\n            form.save()\n            messages.success(request, \"Record Has Been Updated!\")\n            return redirect('home')\n        return render(request, 'update_record.html', {'form': form})\n    else:",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
@@ -478,6 +524,33 @@
         "description": "dcrm.website.views",
         "peekOfCode": "def home(request):\n    records = Record.objects.all()\n    # Check to see if logging in\n    if request.method == 'POST':\n        username = request.POST['username']\n        password = request.POST['password']\n        # Authenticate\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)",
         "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "dcrm.importdata",
+        "description": "dcrm.importdata",
+        "peekOfCode": "conn = mysql.connector.connect(user='root', password='10081998',\n                               host='localhost', database='django')\ncursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)",
+        "detail": "dcrm.importdata",
+        "documentation": {}
+    },
+    {
+        "label": "cursor",
+        "kind": 5,
+        "importPath": "dcrm.importdata",
+        "description": "dcrm.importdata",
+        "peekOfCode": "cursor = conn.cursor()\n# open the csv file\nmock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)",
+        "detail": "dcrm.importdata",
+        "documentation": {}
+    },
+    {
+        "label": "mock_data_files",
+        "kind": 5,
+        "importPath": "dcrm.importdata",
+        "description": "dcrm.importdata",
+        "peekOfCode": "mock_data_files = ['./../mockdata/MOCK_DATA_1.csv',\n                   './../mockdata/MOCK_DATA_2.csv', './../mockdata/MOCK_DATA_3.csv']\nfor data_file in mock_data_files:\n    with open(data_file, mode='r') as csv_file:\n        # read csv using reader class\n        csv_reader = csv.reader(csv_file)\n        # skip header\n        header = next(csv_reader)\n        # Read csv row wise and insert into table\n        for row in csv_reader:",
+        "detail": "dcrm.importdata",
         "documentation": {}
     },
     {
