@@ -4,7 +4,7 @@ from django.contrib import messages
 # Create your views here.
 
 def login_user(request):
-# Check to see if loggin in
+# Check to see if logged in
     if request.method == 'POST':
         userName = request.POST['userName']
         passWord = request.POST['passWord']
@@ -16,13 +16,16 @@ def login_user(request):
             return redirect('home')
         else:
             messages.success(request,'Error; Please try Login again')
-            
-def home(request):
-    # Check to see if loggin in
-    login_user(request)
-    return render(request, 'home.html', {})
 
 def logout_user(request):
     logout(request)
     messages.success(request,"You've been logged out")
     return redirect('home')
+
+def register_user(request):
+    return render(request, 'register.html', {})
+ 
+def home(request):
+    login_user(request)
+    return render(request, 'home.html', {})
+

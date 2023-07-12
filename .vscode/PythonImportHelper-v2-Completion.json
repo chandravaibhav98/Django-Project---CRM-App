@@ -89,6 +89,30 @@
         "documentation": {}
     },
     {
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -352,11 +376,20 @@
         "documentation": {}
     },
     {
+        "label": "SignUpForm",
+        "kind": 6,
+        "importPath": "dcrm.website.forms",
+        "description": "dcrm.website.forms",
+        "peekOfCode": "class SignUpForm(UserCreationForm):\n    email = forms.EmailField(\n        label='', widget=forms.TextInput(attrs={}), required=False)\n    first_name = forms.CharField(label='',)\n    last_name = forms.CharField(label='',)",
+        "detail": "dcrm.website.forms",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "dcrm.website.urls",
         "description": "dcrm.website.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    #path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    #path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n]",
         "detail": "dcrm.website.urls",
         "documentation": {}
     },
@@ -365,16 +398,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def login_user(request):\n# Check to see if loggin in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
-        "detail": "dcrm.website.views",
-        "documentation": {}
-    },
-    {
-        "label": "home",
-        "kind": 2,
-        "importPath": "dcrm.website.views",
-        "description": "dcrm.website.views",
-        "peekOfCode": "def home(request):\n    # Check to see if loggin in\n    login_user(request)\n    return render(request, 'home.html', {})\ndef logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')",
+        "peekOfCode": "def login_user(request):\n# Check to see if logged in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
@@ -383,7 +407,25 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')",
+        "peekOfCode": "def logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')\ndef register_user(request):\n    return render(request, 'register.html', {})\ndef home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "register_user",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def register_user(request):\n    return render(request, 'register.html', {})\ndef home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
+        "detail": "dcrm.website.views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "dcrm.website.views",
+        "description": "dcrm.website.views",
+        "peekOfCode": "def home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
