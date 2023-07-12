@@ -431,7 +431,7 @@
         "kind": 6,
         "importPath": "dcrm.website.models",
         "description": "dcrm.website.models",
-        "peekOfCode": "class Record(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    first_name = models.CharField(max_length=20)\n    last_name = models.CharField(max_length=20)\n    email = models.CharField(max_length=30)\n    phone = models.CharField(max_length=10)\n    address = models.CharField(max_length=100)\n    city = models.CharField(max_length=20)\n    state = models.CharField(max_length=20)\n    zipcode = models.CharField(max_length=10)",
+        "peekOfCode": "class Record(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    first_name = models.CharField(max_length=50)\n    last_name = models.CharField(max_length=50)\n    email = models.CharField(max_length=100)\n    phone = models.CharField(max_length=15)\n    address = models.CharField(max_length=100)\n    city = models.CharField(max_length=50)\n    state = models.CharField(max_length=50)\n    zipcode = models.CharField(max_length=20)",
         "detail": "dcrm.website.models",
         "documentation": {}
     },
@@ -442,15 +442,6 @@
         "description": "dcrm.website.urls",
         "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    #path('login/', views.login_user, name='login'),\n    path('logout/', views.logout_user, name='logout'),\n    path('register/', views.register_user, name='register'),\n]",
         "detail": "dcrm.website.urls",
-        "documentation": {}
-    },
-    {
-        "label": "login_user",
-        "kind": 2,
-        "importPath": "dcrm.website.views",
-        "description": "dcrm.website.views",
-        "peekOfCode": "def login_user(request):\n    # Check to see if logged in\n    if request.method == 'POST':\n        username = request.POST['username']\n        password = request.POST['password']\n        # Authenticate\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            messages.success(request, 'You are logged in')",
-        "detail": "dcrm.website.views",
         "documentation": {}
     },
     {
@@ -476,7 +467,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
+        "peekOfCode": "def home(request):\n    records = Record.objects.all()\n    # Check to see if logging in\n    if request.method == 'POST':\n        username = request.POST['username']\n        password = request.POST['password']\n        # Authenticate\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
