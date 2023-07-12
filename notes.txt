@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 django - url,view,page
 
 1:43:00
-Database Model
+Individual Record - record.html
 
 python mydb.py
 
