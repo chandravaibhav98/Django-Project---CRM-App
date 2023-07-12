@@ -380,7 +380,7 @@
         "kind": 6,
         "importPath": "dcrm.website.forms",
         "description": "dcrm.website.forms",
-        "peekOfCode": "class SignUpForm(UserCreationForm):\n    email = forms.EmailField(\n        label='', widget=forms.TextInput(attrs={}), required=False)\n    first_name = forms.CharField(label='',)\n    last_name = forms.CharField(label='',)",
+        "peekOfCode": "class SignUpForm(UserCreationForm):\n    email = forms.EmailField(\n        label='', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))\n    first_name = forms.CharField(label='', max_length=20, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'first name'}))\n    last_name = forms.CharField(label='', max_length=20, widget=forms.TextInput(\n        attrs={'class': 'form-control', 'placeholder': 'last name'}))",
         "detail": "dcrm.website.forms",
         "documentation": {}
     },
