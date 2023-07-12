@@ -113,6 +113,15 @@
         "documentation": {}
     },
     {
+        "label": "django",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django",
+        "description": "django",
+        "detail": "django",
+        "documentation": {}
+    },
+    {
         "label": "forms",
         "importPath": "django",
         "description": "django",
@@ -406,7 +415,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def login_user(request):\n# Check to see if logged in\n    if request.method == 'POST':\n        userName = request.POST['userName']\n        passWord = request.POST['passWord']\n        # Authenticate\n        user = authenticate(request,username=userName,password=passWord)\n        if user is not None:\n            login(request,user)\n            messages.success(request,'You are logged in')",
+        "peekOfCode": "def login_user(request):\n    # Check to see if logged in\n    if request.method == 'POST':\n        username = request.POST['username']\n        password = request.POST['password']\n        # Authenticate\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            messages.success(request, 'You are logged in')",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
@@ -415,7 +424,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def logout_user(request):\n    logout(request)\n    messages.success(request,\"You've been logged out\")\n    return redirect('home')\ndef register_user(request):\n    return render(request, 'register.html', {})\ndef home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
+        "peekOfCode": "def logout_user(request):\n    logout(request)\n    messages.success(request, \"You've been logged out\")\n    return redirect('home')\ndef register_user(request):\n    if request.method == 'POST':\n        form = SignUpForm(request.POST)\n        if form.is_valid():\n            form.save()\n            # Authenticate and login",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
@@ -424,7 +433,7 @@
         "kind": 2,
         "importPath": "dcrm.website.views",
         "description": "dcrm.website.views",
-        "peekOfCode": "def register_user(request):\n    return render(request, 'register.html', {})\ndef home(request):\n    login_user(request)\n    return render(request, 'home.html', {})",
+        "peekOfCode": "def register_user(request):\n    if request.method == 'POST':\n        form = SignUpForm(request.POST)\n        if form.is_valid():\n            form.save()\n            # Authenticate and login\n            username = form.cleaned_data['username']\n            password = form.cleaned_data['password1']\n            user = authenticate(username=username, password=password)\n            login(request, user)",
         "detail": "dcrm.website.views",
         "documentation": {}
     },
