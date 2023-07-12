@@ -2,7 +2,7 @@ https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
 django - url,view,page
 
-1:43:00
+1:46:00
 Individual Record - record.html
 
 python mydb.py
@@ -14,7 +14,10 @@ $ winpty python manage.py createsuperuser
 
 python .\manage.py runserver 
 
-admin/10*****8
+
+root/10*****8
+    /
+    admin/10*****8
 
 
 SQL:
