@@ -402,6 +402,15 @@
         "documentation": {}
     },
     {
+        "label": "Record",
+        "kind": 6,
+        "importPath": "dcrm.website.models",
+        "description": "dcrm.website.models",
+        "peekOfCode": "class Record(model.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    first_name = models.CharField(max_length=20)\n    last_name = models.CharField(max_length=20)\n    email = models.CharField(max_length=30)\n    phone = models.CharField(max_length=10)\n    address = models.CharField(max_length=100)\n    city = models.CharField(max_length=20)\n    state = models.CharField(max_length=20)\n    zipcode = models.CharField(max_length=10)",
+        "detail": "dcrm.website.models",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "dcrm.website.urls",

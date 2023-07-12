@@ -1,8 +1,7 @@
 https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
-57:50
-Register users
-
+1:15:00
+Database Model
 
 python mydb.py
 python main.py migrate
