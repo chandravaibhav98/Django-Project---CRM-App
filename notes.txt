@@ -2,8 +2,6 @@ https://www.youtube.com/watch?v=t10QcFx7d5k&t=4281s
 
 django - url,view,page
 
-2:05:--
-
 python mydb.py
 
 python manage.py makemigrations
@@ -11,12 +9,14 @@ python manage.py migrate
 
 $ winpty python manage.py createsuperuser
 
-python .\manage.py runserver 
+python manage.py runserver 
+
+improvements : insert mockdata
 
 
-root/10*****8
+root/*0*****8
     /
-    admin/10*****8
+    admin/1*******
 
 
 SQL:
